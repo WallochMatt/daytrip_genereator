@@ -1,73 +1,67 @@
 
 import random
-#randchoices and their list should become functions
-#4+ items in lists
+
 list_of_destinations = ["park", "waterpark", "arcade", "bar", "Medieval Times"]
 list_of_restaurants = ["Kyoto Sushi", "Tanpopo Ramen", "Mah Raja", "Culver's", "Bel Air Cantina"]
 list_of_transports = ["car", "Uber", "carriage", "bike", "unicorn"]
 list_of_entertainment = ["watch a movie", "go jet skiing", "hit the range", "LARP", "play D&D"]
 
-rand_destin = random.choice(list_of_destinations)
-rand_resta = random.choice(list_of_restaurants)
-rand_transp = random.choice(list_of_transports)
-rand_ent = random.choice(list_of_entertainment)
+temporary_check = ""
 
-# print(rand_destin)
-# print(rand_resta)
-# print(rand_transp)
-# print(rand_ent)
+def gives_destination(temporary_check):#i might be able to set a parameter for the index, so the function will rerun if it chooses the index, ie repeated choice
+    rand_destin = random.choice(list_of_destinations)
+    if temporary_check == rand_destin:
+        gives_destination(index)
+    return rand_destin  
 
-#print(f"How about a trip to the {rand_destin}, by way of {rand_transp} where we can stop to {rand_ent} and eat at {rand_resta}.")
+def gives_restaurants():
+    rand_resta = random.choice(list_of_restaurants)
+    return rand_resta
 
-# user_input = 0 #WOnt be able to pick and choose parts
-# while user_input != 1:
-#     print(f"How about a trip to the {rand_destin}, by way of {rand_transp} where we can stop to {rand_ent} and eat at {rand_resta}.")
-#     choice = input(("How does that sound? Y/N ?: "))
-#     if choice.lower == "y":
-#         print("GREAT!")
-#         user_input += 1
-#     elif choice.lower == "n":
-#         print("Lets find something else!")
-#     else:
-#         pass
+def gives_transport():
+    rand_transp = random.choice(list_of_transports)
+    return rand_transp
 
+def gives_entertainment():
+    rand_ent = random.choice(list_of_entertainment)
+    return rand_ent
 
-#could try a for loop tht confimrs each choice?
-#might need a temp value for confrimin a trip as complete so i can store a copy of the trip, otherwise its  apt to be overwritten
-# happy = int(input("1 yess 0 no"))
-# if happy == 1:
-#     print("YOUR TRIP IS ")#^you could use numbersa for more accurate user input selection
-# elif happy == 0:
-#     answer = int(input("WHat dont you like?: 1 2 3 4")) # FOR LOOP?
-#     #print("whats is wrong?")
-#     if answer == 1:
-#         rand_destin#rerolll
-#     if answer == 2:
-#         print(rand_resta)
-#     if answer == 3:
-#         rand_transp
-#     if answer == 4:
-#         rand_ent
+master_list = [gives_destination(), gives_transport(), gives_entertainment(), gives_restaurants()] # need ()?
+
+print(f"How about a trip to the {master_list[0]}, by way of {master_list[1]} where we can stop to {master_list[2]} and eat at {master_list[3]}.")
+#keep in mind I changed these since the previous repo
+#print(f"How about a trip to the {gives_destination()}, by way of {gives_transport()} where we can stop to {gives_entertainment()} and eat at {gives_restaurants()}.")
+
+#Probably going to need a while loop
+# for index in master_list:#good
+#     #backup_index = index
+#     happy = int(input(f"Are you happy with {index}?"))
 
 
+        # if index == 0:
+        #     gives_destination
+        # if index == 1:
+        #     gives_transport
+        # if index == 2:
+        #     gives_entertainment
+        # if index == 3:
+        #     gives_restaurants
 
-        # temp = index
-        # new_index = index
-        # index = new_index #wrong order could help
-        # print(index)
+    # if happy == 1:#YES
+    #     pass
+    # if happy == 0:#NO
+    #     index = backup_index
+complete = 0
 
-master_list = [rand_destin, rand_resta, rand_transp, rand_ent]
+while complete < 1:
+    for index in master_list:
+        happy = int(input(""))
+        if happy == 1:
+            pass
+        elif happy == 0:
+            temporary_check = index #trying to send this back into the function
 
-#final_choice_list = []
 
-print(f"How about a trip to the {master_list[0]}, by way of {master_list[2]} where we can stop to {master_list[3]} and eat at {master_list[1]}.")#good
 
-for index in master_list:#good
-    happy = int(input(f"Are you happy with {index}?"))
-    counter = 0
-    if happy == 1:#YES
-        pass
-    if happy == 0:#NO
-        pass
-        # new_index = master_list[]
-        # index = new_index
+
+
